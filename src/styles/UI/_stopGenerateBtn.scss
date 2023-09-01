@@ -1,0 +1,22 @@
+.stop-btn{
+    padding: 10px;
+    height: 40px;
+    width: 200px;
+    text-align: center;
+    border-radius: 18px;
+    background-color: $light-green;
+    opacity: 30%;
+    color: $white;
+    position: absolute;
+    left: calc(50% - 100px);
+    top: -45px;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+
+    &:hover {
+        background-color: $light-green_hover;
+        opacity: 100%;
+    }
+}

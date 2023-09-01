@@ -1,0 +1,28 @@
+.send-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: $light-green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    outline: none;
+    border: none;
+
+    .send-svg {
+        width: 20px;
+        height: 20px;
+        margin-right: 3px;
+        fill: $white;
+    }
+
+    &:hover {
+        background-color: $light-green_hover;
+    }
+
+    &:disabled {
+        cursor: auto;
+        pointer-events: none    
+    }
+}

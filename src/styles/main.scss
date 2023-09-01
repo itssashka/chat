@@ -1,0 +1,24 @@
+// @import "~highlight.js/styles/github.css";
+
+// vars
+@import './vars/colors';
+@import './vars/default';
+@import './vars/vars';
+
+// ui
+@import './UI/line';
+@import './UI/myInput';
+@import './UI/myTextArea';
+@import './UI/sendBtn';
+@import './UI/stopGenerateBtn';
+@import './UI/myBtn';
+
+
+
+@import './chat/chat.scss';
+@import './chat/chatsList.scss';
+@import './chat/chatConsole.scss';
+
+
+@import './auth/auth.scss';
+

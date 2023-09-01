@@ -1,0 +1,113 @@
+.chats-list {
+    width: 400px;
+    height: 100%;
+    background-color: $light-gray;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    color: $white;
+
+    &__title {
+        align-self: center;
+        font-size: $font-headers;
+        font-weight: 700;
+        padding: 10px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    &__create {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 10px;
+        background-color: $light-gray2;
+        cursor: pointer;
+        user-select: none;
+
+        .plus-svg {
+            width:20px;
+            height: 20px;
+            fill: $white;
+            cursor: pointer;
+        }
+
+        &:hover {
+            background-color: $light-gray2_hover;
+        }
+    }
+
+    &__body {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        overflow-y: auto;
+
+    }
+
+    .chat-item {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 15px;
+        cursor: pointer;
+
+        &_active {
+            background-color: $light-gray_hover;
+        }
+
+
+        &__btn-delete {
+            border: none;
+            outline: none;
+            background-color: transparent;
+            cursor: pointer;
+
+            .trash-svg {
+                width: 20px;
+                height: 20px;
+                fill: $white;
+            }
+        }
+
+        &:hover {
+            background-color: $light-gray_hover;
+        }
+    }
+
+    .user-info {
+        width: 100%;
+        display: flex;
+        padding: 15px 10px;
+        gap: 10px;
+        align-items: center;
+        cursor: pointer;
+
+        &__img {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: $light-green;
+        }
+
+        .btn_logout {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+
+            .logout-svg {
+                width: 20px;
+                height: 20px;
+                fill: $white;
+            }
+        }
+    }
+}

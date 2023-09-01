@@ -1,0 +1,15 @@
+.myBtn {
+    width: 100%;
+    height: 40px;
+    border-radius: $border-radius;
+    outline: none;
+    border: none;
+    background-color: $light-green;
+    font-size: $font-common;
+    color: $white;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $light-green_hover;
+    }
+}

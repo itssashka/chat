@@ -1,0 +1,26 @@
+.myTextArea {
+    width: 100%;
+    height: 100px;
+    resize: none;
+    background-color: transparent;
+    border: 2px solid $light-gray2;
+    color: $white;
+
+    outline: none;
+    border-radius: $border-radius;
+    padding: 10px;
+    font-size: $font-common;
+
+    &::placeholder {
+        color: $light-gray2
+    }
+
+    &:focus {
+        border-color: $light-green_hover;
+    }
+
+    &:disabled {
+        cursor: auto;
+        background-color: $light-gray;
+    }
+}
