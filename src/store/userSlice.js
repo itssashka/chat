@@ -7,22 +7,22 @@ export const loginAsync = createAsyncThunk(
         dispatch(login(formValues));
         dispatch(setErrors(''));
 
-        // try {
-        //     const resp = await axios({
-        //         method: 'post',
-        //         url: '/api/v1/auth/login',
-        //         data: formValues,
-        //     })
+        try {
+            const resp = await axios({
+                method: 'post',
+                url: '/api/v1/auth/login',
+                data: formValues,
+            })
 
-        //     if(resp.status === 200) {
-        //         localStorage.setItem('token', resp.data.token);
-        //         dispatch(login(resp.data));
-        //     } else {
-        //         throw new Error(resp.data.message);
-        //     }
-        // } catch (error) {
-        //     dispatch(setErrors(error));
-        // }
+            if(resp.status === 201) {
+                localStorage.setItem('token', resp.data.token);
+                dispatch(login(resp.data));
+            } else {
+                throw new Error(resp.data.message);
+            }
+        } catch (error) {
+            dispatch(setErrors(error));
+        }
     }
 );
 
@@ -32,22 +32,22 @@ export const regAsync = createAsyncThunk(
         dispatch(reg(formValues));
         dispatch(setErrors(''));
 
-        // try {
-        //     const resp = await axios({
-        //         method: "post",
-        //         url: "/api/v1/auth/reg",
-        //         data: formValues,
-        //     });
+        try {
+            const resp = await axios({
+                method: "post",
+                url: "/api/v1/auth/reg",
+                data: formValues,
+            });
 
-        //     if (resp.status === 200) {
-        //         localStorage.setItem("token", resp.data.token);
-        //         dispatch(reg(resp.data));
-        //     } else {
-        //         throw new Error(resp.data.message);
-        //     }
-        // } catch (error) {
-        //     dispatch(setErrors(error));
-        // }
+            if (resp.status === 201) {
+                localStorage.setItem("token", resp.data.token);
+                dispatch(reg(resp.data));
+            } else {
+                throw new Error(resp.data.message);
+            }
+        } catch (error) {
+            dispatch(setErrors(error));
+        }
     }
 );
 

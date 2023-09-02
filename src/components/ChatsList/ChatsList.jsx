@@ -37,7 +37,7 @@ const ChatsList = () => {
                 <div className="chats-list__create__title">Создать новый чат</div>
                 <div className="chats-list__crate_icon">{svgs.plusSVG}</div>
             </div>
-            <UserInfo/>
+            {/* <UserInfo/> */}
         </div>
     );
 };

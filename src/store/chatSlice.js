@@ -13,6 +13,7 @@ export const stopGenerating = () => {
 
 export const getBotMessage = createAsyncThunk('chat/getBotMessage', async(prompt, {dispatch, getState}) => {
     const messages = getState().chat.messages;
+    
 
     controller = new AbortController();
     const signal = controller.signal;
@@ -31,6 +32,8 @@ export const getBotMessage = createAsyncThunk('chat/getBotMessage', async(prompt
             }),
             signal,
         });
+
+        console.log(resp);
 
         let message = '';
         const reader = resp.body.getReader();
@@ -79,7 +82,6 @@ export const getBotMessage = createAsyncThunk('chat/getBotMessage', async(prompt
 
 export const sendMessageAsync = createAsyncThunk('chat/sendMessageAsync', async({content, role}, {dispatch, getState}) => {
     const newMessage = {
-        // id: getState().chat.messages.length,
         content: content,
         role: role
     }
@@ -151,12 +153,17 @@ export const createChatAsync = createAsyncThunk('chat/createChatAsync', async (t
 
 export const openChatAsync = createAsyncThunk('chat/openChatAsync', async(id, {dispatch, getState}) => {
     stopGenerating();
-    const chats = getState().chat.chats;
+    const timeOut = setTimeout(() => {
+        const chats = getState().chat.chats;
 
-    //временно
-    const currentChat = chats.find(chat => chat.id === id);
-    const messages = currentChat.messages;
-    dispatch(openChat({messages, currentChat}));
+        //временно
+        const currentChat = chats.find(chat => chat.id === id);
+        const messages = currentChat.messages;
+        dispatch(openChat({messages, currentChat}));
+
+        clearTimeout(timeOut);
+    }, 500)
+    
 
     // try {
     //     const resp = await axios({

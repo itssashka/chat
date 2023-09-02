@@ -19,9 +19,8 @@ const Login = () => {
     }
 
     useEffect(() => {
-        console.log(isAuth)
         if (isAuth) {
-            navigate('/chat')
+            navigate('/chat');
         }
     }, [isAuth]);
 
@@ -54,8 +53,7 @@ const Login = () => {
                     />
                     {errors.password && <div className="form_error">{errors.password}</div>}
                 </div>
-                
-                
+
                 {loginError && <div className="form_error">неправильный логин или пароль</div>}
                 <MyBtn type="submit">Войти</MyBtn>
                 <Link to="/auth/reg" className="auth__change_btn">Создать аккаунт</Link>
