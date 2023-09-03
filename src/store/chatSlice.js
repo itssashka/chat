@@ -11,9 +11,9 @@ export const stopGenerating = () => {
     }
 }
 
-export const getBotMessage = createAsyncThunk('chat/getBotMessage', async(prompt, {dispatch, getState}) => {
+export const getBotMessage = createAsyncThunk('chat/getBotMessage', async(_, {dispatch, getState}) => {
     const messages = getState().chat.messages;
-    
+    console.log(messages);
 
     controller = new AbortController();
     const signal = controller.signal;

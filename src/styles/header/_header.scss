@@ -1,0 +1,19 @@
+.header {
+    width: 100%;
+    height: 50px;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    display: none;
+
+    @media (max-width: 768px) {
+        display: block;
+    }
+
+    .menu-svg {
+        width: 25px;
+        height: 25px;
+        fill:$white;
+        cursor: pointer;
+    }
+}

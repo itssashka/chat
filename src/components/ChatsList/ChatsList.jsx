@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import Chat from "../../Pages/Chats";
 import ChatItem from "./ChatItem";
 import { useDispatch, useSelector } from "react-redux";
 import { createChatAsync, getChats, getCurrentChat } from "../../store/chatSlice";
 import UserInfo from "./UserInfo";
 
-const ChatsList = () => {
+const ChatsList = ({setIsMenuOpen,isMenuOpen}) => {
     const svgs = {
         plusSVG: (
             <svg
@@ -21,14 +21,29 @@ const ChatsList = () => {
     const chats = JSON.parse(JSON.stringify(useSelector(getChats))).reverse();  
     const dispatch = useDispatch();
     const currentChat = useSelector(getCurrentChat);
+    const chatsStyles = isMenuOpen ? 'chats-list' : 'chats-list chats-list_closed';
+    const chatsListRef = useRef();
 
 
     const createChat = () => {
         dispatch(createChatAsync('Чат'));
     };  
 
+    const clickHandleOutside = (e) => {
+        if(chatsListRef.current && !chatsListRef.current.contains(e.target)) {
+            setIsMenuOpen(false);
+        }
+    }
+
+    useEffect(() => {
+        document.addEventListener('click', clickHandleOutside, true)
+        return () => {
+            document.removeEventListener('click', clickHandleOutside, true)
+        }
+    })
+
     return (
-        <div className="chats-list">
+        <div className={chatsStyles} ref={chatsListRef}>
             <div className="chats-list__title">Список чатов</div>
             <div className="chats-list__body">
                 {chats.map(chat => <ChatItem key={chat.id} chat={chat} isActive={currentChat.id === chat.id}/>)}
@@ -37,7 +52,7 @@ const ChatsList = () => {
                 <div className="chats-list__create__title">Создать новый чат</div>
                 <div className="chats-list__crate_icon">{svgs.plusSVG}</div>
             </div>
-            {/* <UserInfo/> */}
+            <UserInfo/>
         </div>
     );
 };
