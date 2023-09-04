@@ -19,13 +19,19 @@ a, a:visited, a:active {
     outline: none;
 }
 
+:root {
+    --vh: 1vh;
+}
+
 .wrapper {
-    min-height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     width: 100vw;
     background-color: $main-gray;
+    overflow: hidden;
 
     *::-webkit-scrollbar {
         width: 7px;
+        height: 7px;
 
         &-thumb {
             background: $light-gray2;
@@ -39,3 +45,8 @@ a, a:visited, a:active {
     }
 }
 
+pre {
+    white-space: pre-wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

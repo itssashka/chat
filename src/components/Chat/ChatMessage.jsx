@@ -31,7 +31,7 @@ const ChatMessage = ({ message, role }) => {
                             }
                         ).value;
                         return `<pre class='chat-console'>
-                                <div class='chat-console__code'>${highlightedCode}</div>
+                                <code class='chat-console__code'>${highlightedCode}</code>
                             </pre>`;
                     }
                     return message;

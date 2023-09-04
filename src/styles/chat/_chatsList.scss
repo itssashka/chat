@@ -14,25 +14,51 @@
     @media (max-width: 768px) {
         position: absolute;
         z-index: 100;
-        width: 200px;
+        width: 250px;
         left: 0;    
         
         &_closed {
-            // display: none !important;
             opacity: 0;
-            transform: translateX(-200px);
+            transform: translateX(-300px);
         }   
     }
 
-    
+    &__closeBtn {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 10px;
+        width: 100%;
+        display: none;
+        .xmark_svg {
+            width: 20px;
+            height: 20px;
+            fill: $white;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            display: flex;
+        }
+            
+    }
 
     &__title {
         align-self: center;
-        font-size: $font-headers;
+        font-size: $font-medium;
         font-weight: 700;
-        padding: 10px 0;
+        padding: 10px;
         width: 100%;
         text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @media (max-width: 768px) {
+            font-size: $font-common;
+            padding: 5px;
+        }
+        
     }
 
     &__create {
