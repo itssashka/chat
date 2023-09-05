@@ -35,7 +35,7 @@
     }
 
     &__messages {
-        width: 100%;
+        width: 850px;
         height: 100%;
         display: flex;
         flex-direction: column;
@@ -44,16 +44,19 @@
         overflow-y: auto;
         padding: 0 10px;
 
+        @media (max-width: 1100px) {
+            width: 100%;
+        }
+
         &__message {
             width: 100%;
             display: flex;
             gap: 10px;
             white-space: pre-line;
             animation: 0.5s ease-in-out addMessage; 
+            flex-direction: row;
 
-            &:nth-child(2n) {
-                flex-direction: row-reverse;
-                
+            &:nth-child(2n) {                
                 .chat__messages__message_text {
                     background-color: $green;
                 }
