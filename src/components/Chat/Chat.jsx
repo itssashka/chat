@@ -16,9 +16,9 @@ const Chat = () => {
     const chatRef = useRef();
     const currentChat = useSelector(getCurrentChat);
 
-    useEffect(()=>{
-        chatRef.current.scrollTo(0, chatRef.current.scrollHeight);
-    },[messages, currentMessage])
+    // useEffect(()=>{
+    //     chatRef.current.scrollTo(0, chatRef.current.scrollHeight);
+    // },[messages, currentMessage])
 
     const sendMessage = (e) => {        
         e.preventDefault();

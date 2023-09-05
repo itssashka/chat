@@ -3,12 +3,14 @@ import React, { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { getIsBotPrint } from "../../store/chatSlice";
 import 'highlight.js/styles/vs2015.css';
+import { getCurrentUser } from "../../store/userSlice";
 // import 'highlight.js/styles/github.css';
 
 const ChatMessage = ({ message, role }) => {
     const [highlitedMessage, setHighlitedMessage] = useState("");
     const isBotPrint = useSelector(getIsBotPrint);
     const textRef = useRef();
+    const currentUser = useSelector(getCurrentUser);
 
     useEffect(() => {
         // if (message.length && role === "assistant") {
@@ -47,7 +49,7 @@ const ChatMessage = ({ message, role }) => {
                 {role === "assistant" ? (
                     <img src="./imgs/gpt_img.png" alt="" />
                 ) : (
-                    "SO"
+                    currentUser.email.slice(0,2)
                 )}
             </div>
             <div

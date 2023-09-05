@@ -23,11 +23,16 @@ a, a:visited, a:active {
     --vh: 1vh;
 }
 
+html,body, #root {
+    height: 100%;
+}
+
 .wrapper {
-    height: calc(var(--vh, 1vh) * 100);
+    // height: calc(var(--vh, 1vh) * 100);
+    height: 100%;
     width: 100vw;
     background-color: $main-gray;
-    overflow: hidden;
+    // overflow: hidden;
 
     *::-webkit-scrollbar {
         width: 7px;

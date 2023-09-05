@@ -11,7 +11,7 @@ const Auth = () => {
     return (
         <div className="auth">
             <div className="auth__container">
-                {page === 'login' ? <Login/> : <Reg/>}
+                {page === 'login' ? <Login/> : <Reg/>}                
             </div>
         </div>
     );

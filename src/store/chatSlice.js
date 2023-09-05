@@ -49,6 +49,7 @@ export const getBotMessage = createAsyncThunk('chat/getBotMessage', async(_, {di
             const decodedChunk = decoder.decode(value);
             const lines = decodedChunk.split("\n");
 
+
             //удаляем лишние строки
             const parsedLines = lines
                 .map((line) => line.replace(/^data: /, "").trim())
@@ -70,7 +71,7 @@ export const getBotMessage = createAsyncThunk('chat/getBotMessage', async(_, {di
         if(signal.aborted) {
             dispatch(sendMessageAsync({content: 'Запрос был прерван, повторите отправку', role: 'assistant'}));
         } else {
-            dispatch(sendMessageAsync({content: 'Произошла ошибка, попробуйте снова', role: 'assistant'}));
+            dispatch(sendMessageAsync({content: 'Произошла ошибка, попробуйте снова ' + error, role: 'assistant'}));
         }
 
         console.error(error)
@@ -182,7 +183,6 @@ export const openChatAsync = createAsyncThunk('chat/openChatAsync', async(id, {d
 export const removeChatAsync = createAsyncThunk('chat/removeChatAsync', async(id, {dispatch, getState}) => {
     const chats = JSON.parse(JSON.stringify(getState().chat.chats));
     const newChats = chats.filter(chat => chat.id !== id);
-    const currentChat = getState().chat.current_chat;
 
     try {
         dispatch(removeChat({newChats,id}));

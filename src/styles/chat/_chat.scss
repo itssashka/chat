@@ -28,10 +28,10 @@
     align-items: center;
     gap: 10px;
     justify-content: center;
-    padding: 20px 10px;
+    padding: 10px 10px;
 
     @media (max-width: 768px) {
-        padding: 0 10px 20px 10px;
+        padding: 0 10px 10px 10px;
     }
 
     &__messages {
@@ -85,6 +85,7 @@
                 max-width: 720px;
                 background-color: $light-gray2;
                 border-radius: $border-radius;
+                word-wrap: break-word;
 
                 @media (max-width: 1100px) {
                     max-width: calc(100% - 40px);
