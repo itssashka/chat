@@ -2,7 +2,7 @@ import React from 'react'
 
 const MyTextArea = ({...props}) => {
   return (
-    <textarea className='myTextArea' placeholder='Как стать сигмой?' {...props}/>
+    <textarea className='myTextArea' placeholder='Расскажи анекдот...' {...props}/>
   )
 }
 

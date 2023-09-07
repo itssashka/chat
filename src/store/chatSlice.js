@@ -13,7 +13,6 @@ export const stopGenerating = () => {
 
 export const getBotMessage = createAsyncThunk('chat/getBotMessage', async(_, {dispatch, getState}) => {
     const messages = getState().chat.messages;
-    console.log(messages);
 
     controller = new AbortController();
     const signal = controller.signal;
@@ -49,7 +48,7 @@ export const getBotMessage = createAsyncThunk('chat/getBotMessage', async(_, {di
             const decodedChunk = decoder.decode(value);
             const lines = decodedChunk.split("\n");
 
-
+            console.log(lines);
             //удаляем лишние строки
             const parsedLines = lines
                 .map((line) => line.replace(/^data: /, "").trim())
@@ -86,8 +85,7 @@ export const sendMessageAsync = createAsyncThunk('chat/sendMessageAsync', async(
         content: content,
         role: role
     }
-    const isFailed = getState().chat.isBotFailed;
-    const currentChat = getState().chat.current_chat;
+    const {isBotFailed: isFailed, current_chat: currentChat} = getState().chat.isBotFailed;
 
     try{
         // const resp = await axios({
